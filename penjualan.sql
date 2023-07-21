@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2023 at 11:23 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Generation Time: Jul 21, 2023 at 02:10 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,6 @@ CREATE TABLE `tbl_barang` (
   `barang_satuan` varchar(30) DEFAULT NULL,
   `barang_harpok` double DEFAULT NULL,
   `barang_harjul` double DEFAULT NULL,
-  `barang_harjul_grosir` double DEFAULT NULL,
   `barang_stok` int(11) DEFAULT 0,
   `barang_min_stok` int(11) DEFAULT 0,
   `barang_tgl_input` timestamp NULL DEFAULT current_timestamp(),
@@ -46,9 +45,10 @@ CREATE TABLE `tbl_barang` (
 -- Dumping data for table `tbl_barang`
 --
 
-INSERT INTO `tbl_barang` (`barang_id`, `barang_nama`, `barang_satuan`, `barang_harpok`, `barang_harjul`, `barang_harjul_grosir`, `barang_stok`, `barang_min_stok`, `barang_tgl_input`, `barang_tgl_last_update`, `barang_kategori_id`, `barang_user_id`) VALUES
-('PJ000001', 'Gelas Kaca', 'Unit', 12000, 10000, 11000, 1199, 1, '2018-09-14 10:27:46', NULL, 40, 1),
-('PJ000002', 'Piring Kaca', 'Unit', 20000, 22000, 21000, 201, 2, '2018-09-14 15:50:21', NULL, 41, 1);
+INSERT INTO `tbl_barang` (`barang_id`, `barang_nama`, `barang_satuan`, `barang_harpok`, `barang_harjul`, `barang_stok`, `barang_min_stok`, `barang_tgl_input`, `barang_tgl_last_update`, `barang_kategori_id`, `barang_user_id`) VALUES
+('PJ000001', 'Gelas Kaca', 'Unit', 12000, 10000, 1299, 1, '2018-09-14 10:27:46', NULL, 40, 1),
+('PJ000002', 'Piring Kaca', 'Unit', 20000, 22000, 197, 2, '2018-09-14 15:50:21', NULL, 41, 1),
+('PJ000003', 'Spion', 'PCS', 20000, 22000, 22, 0, '2023-07-20 14:51:38', NULL, 42, 4);
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,9 @@ CREATE TABLE `tbl_beli` (
 --
 
 INSERT INTO `tbl_beli` (`beli_nofak`, `beli_tanggal`, `beli_suplier_id`, `beli_user_id`, `beli_kode`) VALUES
-('192382139081320', '2018-09-15', 6, 3, 'BL140918000001');
+('192382139081320', '2018-09-15', 6, 3, 'BL140918000001'),
+('200723000004', '2023-07-20', 7, 4, 'BL200723000001'),
+('21842719', '2023-07-20', 7, 4, 'BL200723000002');
 
 -- --------------------------------------------------------
 
@@ -92,7 +94,9 @@ CREATE TABLE `tbl_detail_beli` (
 --
 
 INSERT INTO `tbl_detail_beli` (`d_beli_id`, `d_beli_nofak`, `d_beli_barang_id`, `d_beli_harga`, `d_beli_jumlah`, `d_beli_total`, `d_beli_kode`) VALUES
-(1, '192382139081320', 'PJ000001', 12000, 1213, 14556000, 'BL140918000001');
+(1, '192382139081320', 'PJ000001', 12000, 1213, 14556000, 'BL140918000001'),
+(2, '200723000004', 'PJ000003', 20000, 2, 40000, 'BL200723000001'),
+(3, '21842719', 'PJ000001', 12000, 100, 1200000, 'BL200723000002');
 
 -- --------------------------------------------------------
 
@@ -120,7 +124,8 @@ CREATE TABLE `tbl_detail_jual` (
 INSERT INTO `tbl_detail_jual` (`d_jual_id`, `d_jual_nofak`, `d_jual_barang_id`, `d_jual_barang_nama`, `d_jual_barang_satuan`, `d_jual_barang_harpok`, `d_jual_barang_harjul`, `d_jual_qty`, `d_jual_diskon`, `d_jual_total`) VALUES
 (1, '200723000001', 'PJ000001', 'Gelas Kaca', 'Unit', 12000, 11000, 1, 0, 11000),
 (2, '200723000002', 'PJ000001', 'Gelas Kaca', 'Unit', 12000, 10000, 1, 0, 10000),
-(3, '200723000003', 'PJ000001', 'Gelas Kaca', 'Unit', 12000, 11000, 8, 0, 88000);
+(3, '200723000003', 'PJ000001', 'Gelas Kaca', 'Unit', 12000, 11000, 8, 0, 88000),
+(4, '200723000004', 'PJ000002', 'Piring Kaca', 'Unit', 20000, 22000, 4, 0, 88000);
 
 -- --------------------------------------------------------
 
@@ -146,7 +151,8 @@ CREATE TABLE `tbl_jual` (
 INSERT INTO `tbl_jual` (`jual_nofak`, `jual_tanggal`, `jual_total`, `jual_jml_uang`, `jual_kembalian`, `jual_user_id`, `jual_keterangan`, `jual_pembeli`) VALUES
 ('200723000001', '2023-07-20 04:57:24', 11000, 20000, 9000, 4, 'grosir', 'acep'),
 ('200723000002', '2023-07-20 06:51:21', 10000, 20000, 10000, 4, 'eceran', 'efef'),
-('200723000003', '2023-07-20 07:07:49', 88000, 100000, 12000, 4, 'grosir', 'feri');
+('200723000003', '2023-07-20 07:07:49', 88000, 100000, 12000, 4, 'grosir', 'feri'),
+('200723000004', '2023-07-20 14:35:23', 88000, 100000, 12000, 4, 'eceran', 'Jafar');
 
 -- --------------------------------------------------------
 
@@ -165,7 +171,8 @@ CREATE TABLE `tbl_kategori` (
 
 INSERT INTO `tbl_kategori` (`kategori_id`, `kategori_nama`) VALUES
 (40, 'Gelas'),
-(41, 'Piring');
+(41, 'Piring'),
+(42, 'Aksesoris Motor');
 
 -- --------------------------------------------------------
 
@@ -208,7 +215,8 @@ CREATE TABLE `tbl_suplier` (
 --
 
 INSERT INTO `tbl_suplier` (`suplier_id`, `suplier_nama`, `suplier_alamat`, `suplier_notelp`) VALUES
-(6, 'IKEA', 'jl ZZ', '123213123');
+(6, 'IKEA', 'jl ZZ', '123213123'),
+(7, 'Azhar Corp', 'Jl Dago', '0894188174');
 
 -- --------------------------------------------------------
 
@@ -312,25 +320,25 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_detail_beli`
 --
 ALTER TABLE `tbl_detail_beli`
-  MODIFY `d_beli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `d_beli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_detail_jual`
 --
 ALTER TABLE `tbl_detail_jual`
-  MODIFY `d_jual_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `d_jual_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
-  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `tbl_suplier`
 --
 ALTER TABLE `tbl_suplier`
-  MODIFY `suplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `suplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
