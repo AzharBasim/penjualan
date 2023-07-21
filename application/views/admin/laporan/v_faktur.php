@@ -23,7 +23,7 @@ border: 1px solid black;
     $b=$data->row_array();
 ?>
 <td width='70%' align='left' style='padding-right:80px; vertical-align:top'>
-<span style='font-size:12pt'><b>TOKO PUNGGU JAYA</b></span>
+<span style='font-size:12pt'><b>Mitra Jaya Manufacture</b></span>
 </br>
 Jl. Kiara Condong </br>Telp : 0594094545
 </td>

@@ -40,7 +40,6 @@
                     <strong>Transaksi Berhasil Silahkan Cetak Faktur Penjualan!</strong>
                     <a class="btn btn-default" href="<?php echo base_url().'admin/penjualan'?>"><span class="fa fa-backward"></span>Kembali</a>
                     <a class="btn btn-info" href="<?php echo base_url().'admin/penjualan/cetak_faktur'?>" target="_blank"><span class="fa fa-print"></span>Cetak Faktur</a>
-                    <a class="btn btn-info" href="<?php echo base_url().'admin/penjualan/cetak_struk'?>"><span class="fa fa-print"></span>Cetak Struk</a>
                 </div>
             </div>
         </div>

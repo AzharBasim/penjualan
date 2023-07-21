@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Toko Punggu Jaya</title>
+    <title>Mitra Jaya Manufacture</title>
 
     <!-- Bootstrap core CSS-->
     <link href="<?php echo base_url().'assets/css/bootstrap.min.css'?>" rel="stylesheet">
@@ -37,7 +37,7 @@
                 <div class="login-wrapper">
                     <div class="box">
                         <div class="content-wrap">
-                            <img width="310px" src="<?php echo base_url().'assets/img/logo.png'?>"/>
+                            <img width="365px" src="<?php echo base_url().'assets/img/logo.jpeg'?>"/>
                             <p><?php echo $this->session->flashdata('msg');?></p>
                             <hr/>
           <form action="<?php echo base_url().'administrator/cekuser'?>" method="post" >
