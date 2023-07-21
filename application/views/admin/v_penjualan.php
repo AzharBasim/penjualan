@@ -25,11 +25,11 @@
 <body>
 
     <!-- Navigation -->
-   <?php 
+   <?php
         $this->load->view('admin/menu');
-        
+
    ?>
-   
+
 
     <!-- Page Content -->
     <div class="container">
@@ -41,7 +41,7 @@
                 <h1 class="page-header">Transaksi
                     <small>Penjualan (Eceran)</small>
                     <a href="#" data-toggle="modal" data-target="#largeModal" class="btn btn-success pull-right">List Produk</a>
-                </h1> 
+                </h1>
             </div>
         </div>
         <!-- /.row -->
@@ -54,7 +54,7 @@
                     <th>Kode Barang</th>
                 </tr>
                 <tr>
-                    <th><input type="text" name="kode_brg" id="kode_brg" class="form-control input-sm"></th>                     
+                    <th><input type="text" name="kode_brg" id="kode_brg" class="form-control input-sm"></th>
                 </tr>
                     <div id="detail_barang" style="position:absolute;">
                     </div>
@@ -85,10 +85,10 @@
                          <td style="text-align:right;"><?php echo number_format($items['disc']);?></td>
                          <td style="text-align:center;"><?php echo number_format($items['qty']);?></td>
                          <td style="text-align:right;"><?php echo number_format($items['subtotal']);?></td>
-                        
+
                          <td style="text-align:center;"><a href="<?php echo base_url().'admin/penjualan/remove/'.$items['rowid'];?>" class="btn btn-warning btn-xs"><span class="fa fa-close"></span> Batal</a></td>
                     </tr>
-                    
+
                     <?php $i++; ?>
                     <?php endforeach; ?>
                 </tbody>
@@ -146,7 +146,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php 
+                    <?php
                         $no=0;
                         foreach ($data->result_array() as $a):
                             $no++;
@@ -155,7 +155,6 @@
                             $satuan=$a['barang_satuan'];
                             $harpok=$a['barang_harpok'];
                             $harjul=$a['barang_harjul'];
-                            $harjul_grosir=$a['barang_harjul_grosir'];
                             $stok=$a['barang_stok'];
                             $min_stok=$a['barang_min_stok'];
                             $kat_id=$a['barang_kategori_id'];
@@ -183,19 +182,19 @@
                         </tr>
                     <?php endforeach;?>
                     </tbody>
-                </table>          
+                </table>
 
                 </div>
 
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    
+
                 </div>
             </div>
             </div>
         </div>
 
-        
+
 
         <!-- ============ MODAL HAPUS =============== -->
         <!--END MODAL-->
@@ -229,7 +228,7 @@
                 $('#jml_uang2').val(hsl);
                 $('#kembalian').val(hsl-total);
             })
-            
+
         });
     </script>
     <script type="text/javascript">
@@ -279,7 +278,7 @@
                $('#detail_barang').html(msg);
                }
             });
-            }); 
+            });
 
             $("#kode_brg").keypress(function(e){
                 if(e.which==13){
@@ -288,8 +287,8 @@
             });
         });
     </script>
-    
-    
+
+
 </body>
 
 </html>

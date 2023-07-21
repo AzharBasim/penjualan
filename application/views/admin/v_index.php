@@ -40,7 +40,7 @@
 
       <!-- Navbar -->
         <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user-circle fa-fw"></i>
             <span><?php echo $this->session->userdata('nama');?> </span>
           </a>
@@ -49,14 +49,13 @@
           </div>
         </li>
       </ul>
-
     </nav>
 
 
     <div id="wrapper">
 <?php $h=$this->session->userdata('akses'); ?>
 <?php $u=$this->session->userdata('user'); ?>
-<?php if($h=='1'){ ?> 
+<?php if($h=='1'){ ?>
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
@@ -80,18 +79,9 @@
             <i class="fas fa-fw fa-user"></i>
             <span>Pengguna</span></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>System</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="<?php echo base_url().'administrator/logout'?>">Logout</a>
-          </div>
-        </li>
         <?php }?>
       </ul>
-      <?php if($h=='2'){ ?> 
+      <?php if($h=='2'){ ?>
         <ul class="sidebar navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="<?php echo base_url().'administrator/cekuser'?>">
@@ -106,7 +96,6 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item" href="<?php echo base_url().'admin/penjualan'?>">Eceran</a>
-            <a class="dropdown-item" href="<?php echo base_url().'admin/penjualan_grosir'?>">Grosir</a>
           </div>
         </li>
         <li class="nav-item">
@@ -114,18 +103,9 @@
             <i class="fas fa-fw fa-users"></i>
             <span>Pelanggan</span></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>System</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="<?php echo base_url().'administrator/logout'?>">Logout</a>
-          </div>
-        </li>
         </ul>
         <?php }?>
-      <?php if($h=='3'){ ?> 
+      <?php if($h=='3'){ ?>
        <ul class="sidebar navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="<?php echo base_url().'administrator/cekuser'?>">
@@ -133,18 +113,9 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>System</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="<?php echo base_url().'administrator/logout'?>">Logout</a>
-          </div>
-        </li>
         </ul>
         <?php }?>
-      <?php if($h=='1'){ ?> 
+      <?php if($h=='1'){ ?>
       <div id="content-wrapper">
         <div class="container-fluid">
 
@@ -153,7 +124,43 @@
             <li class="breadcrumb-item">
             <strong>Selamat Datang <?php echo $this->session->userdata('nama');?> ! </strong> Semangat Bekerja.
           </ol>
-
+         <!-- Bagian Kalender di atas card-card lainnya -->
+    <div class="container mt-4>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <!-- Posisi kalimat nama bulan menjadi di tengah kalender -->
+              <h5 class="card-title text-center" id="current-month">Nama Bulan</h5>
+              <table class="table table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th>Minggu</th>
+                    <th>Senin</th>
+                    <th>Selasa</th>
+                    <th>Rabu</th>
+                    <th>Kamis</th>
+                    <th>Jumat</th>
+                    <th>Sabtu</th>
+                  </tr>
+                </thead>
+                <tbody id="calendar-body">
+                  <!-- Kalender akan diisi melalui JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <style>
+          /* style untuk menandai tanggal hari ini */
+          .today {
+            background-color: #007bff; /* Ganti dengan warna yang diinginkan */
+            color: #fff; /* Ganti dengan warna teks yang kontras */
+          }
+        </style>
+        <br>
           <!-- Icon Cards-->
           <div class="row">
             <div class="col-xl-3 col-sm-6 mb-3">
@@ -162,25 +169,9 @@
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-shopping-cart"></i>
                   </div>
-                  <div class="mr-5">Penjualan Eceran</div>
+                  <div class="mr-5">Penjualan Produk</div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'admin/penjualan'?>">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-cubes"></i>
-                  </div>
-                  <div class="mr-5">Penjualan Grosir</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'admin/penjualan_grosir'?>">
                   <span class="float-left">View Details</span>
                   <span class="float-right">
                     <i class="fas fa-angle-right"></i>
@@ -268,54 +259,6 @@
                 </a>
               </div>
             </div>
-            <!-- <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-tags"></i>
-                  </div>
-                  <div class="mr-5">Retur</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'admin/retur'?>">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div> -->
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-dark o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-user"></i>
-                  </div>
-                  <div class="mr-5">Pengguna</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'admin/pengguna'?>">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-danger o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-clipboard"></i>
-                  </div>
-                  <div class="mr-5">Laporan</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'admin/laporan'?>">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>            
             <div class="col-xl-3 col-sm-6 mb-3">
               <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
@@ -331,25 +274,11 @@
                   </span>
                 </a>
               </div>
-            </div>            
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-dark o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-user-cog fa-fw"></i>
-                  </div>
-                  <div class="mr-5">Logout</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'administrator/logout'?>">
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
             </div>
           </div>
+
           <?php }?>
-<?php if($h=='2'){ ?> 
+<?php if($h=='2'){ ?>
       <div id="content-wrapper">
         <div class="container-fluid">
 
@@ -360,6 +289,7 @@
           </ol>
 
           <!-- Icon Cards-->
+
           <div class="row">
             <div class="col-xl-3 col-sm-6 mb-3">
               <div class="card text-white bg-primary o-hidden h-100">
@@ -370,22 +300,6 @@
                   <div class="mr-5">Penjualan Eceran</div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'admin/penjualan'?>">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-cubes"></i>
-                  </div>
-                  <div class="mr-5">Penjualan Grosir</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'admin/penjualan_grosir'?>">
                   <span class="float-left">View Details</span>
                   <span class="float-right">
                     <i class="fas fa-angle-right"></i>
@@ -411,7 +325,7 @@
             </div>
             </div>
             <?php }?>
-    <?php if($h=='3'){ ?> 
+    <?php if($h=='3'){ ?>
       <div id="content-wrapper">
         <div class="container-fluid">
 
@@ -486,23 +400,6 @@
                 </a>
               </div>
             </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-tags"></i>
-                  </div>
-                  <div class="mr-5">Retur</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'admin/retur'?>">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-
           </div>
           <?php }?>
 
@@ -526,7 +423,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url().'administrator/logout'?>">Logout</a>
+            <a class="btn btn-danger" href="<?php echo base_url().'administrator/logout'?>">Logout</a>
           </div>
         </div>
       </div>
@@ -551,7 +448,57 @@
     <script src="<?php echo base_url().'assets/vendor/js/demo/datatables-demo.js'?>"></script>
     <script src="<?php echo base_url().'assets/vendor/js/demo/chart-area-demo.js'?>"></script>
 
+    <script>
+  // Fungsi untuk membuat kalender
+  function createCalendar(year, month) {
+    const calendarBody = document.getElementById('calendar-body');
+    calendarBody.innerHTML = '';
+    const currentMonthName = document.getElementById('current-month');
+
+    const daysInMonth = new Date(year, month, 0).getDate();
+    const firstDayIndex = new Date(year, month - 1, 1).getDay();
+
+    const monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+    calendarBody.innerHTML = '';
+    currentMonthName.innerHTML = monthNames[month - 1]; // Mengganti teks dengan nama bulan
+
+    let day = 1;
+    for (let i = 0; i < 6; i++) {
+      const row = document.createElement('tr');
+      for (let j = 0; j < 7; j++) {
+        const cell = document.createElement('td');
+
+        if (i === 0 && j < firstDayIndex) {
+          // Sel kosong sebelum tanggal pertama di minggu pertama
+          cell.innerHTML = '';
+        } else if (day > daysInMonth) {
+          // Sel kosong setelah tanggal terakhir di bulan
+          cell.innerHTML = '';
+        } else {
+          cell.innerHTML = day;
+          if (day === new Date().getDate() && month === new Date().getMonth() + 1 && year === new Date().getFullYear()) {
+            // Tambahkan kelas 'today' untuk menandai tanggal hari ini
+            cell.classList.add('today');
+          }
+          day++;
+        }
+
+        row.appendChild(cell);
+      }
+      calendarBody.appendChild(row);
+    }
+  }
+
+  // Panggil fungsi untuk membuat kalender saat halaman dimuat
+  document.addEventListener('DOMContentLoaded', function () {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    createCalendar(year, month);
+  });
+</script>
+
   </body>
 
 </html>
- 

@@ -23,7 +23,7 @@
 <body>
 
     <!-- Navigation -->
-   <?php 
+   <?php
         $this->load->view('admin/menu');
    ?>
 
@@ -52,7 +52,6 @@
                         <th>Satuan</th>
                         <th>Harga Pokok</th>
                         <th>Harga (Eceran)</th>
-                        <th>Harga (Grosir)</th>
                         <th>Stok</th>
                         <th>Min Stok</th>
                         <th>Kategori</th>
@@ -60,7 +59,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php 
+                <?php
                     $no=0;
                     foreach ($data->result_array() as $a):
                         $no++;
@@ -69,7 +68,6 @@
                         $satuan=$a['barang_satuan'];
                         $harpok=$a['barang_harpok'];
                         $harjul=$a['barang_harjul'];
-                        $harjul_grosir=$a['barang_harjul_grosir'];
                         $stok=$a['barang_stok'];
                         $min_stok=$a['barang_min_stok'];
                         $kat_id=$a['barang_kategori_id'];
@@ -82,7 +80,6 @@
                         <td style="text-align:center;"><?php echo $satuan;?></td>
                         <td style="text-align:right;"><?php echo 'Rp '.number_format($harpok);?></td>
                         <td style="text-align:right;"><?php echo 'Rp '.number_format($harjul);?></td>
-                        <td style="text-align:right;"><?php echo 'Rp '.number_format($harjul_grosir);?></td>
                         <td style="text-align:center;"><?php echo $stok;?></td>
                         <td style="text-align:center;"><?php echo $min_stok;?></td>
                         <td><?php echo $kat_nama;?></td>
@@ -133,12 +130,12 @@
                                     ?>
                                         <option value="<?php echo $id_kat;?>"><?php echo $nm_kat;?></option>
                                 <?php }?>
-                                    
+
                                 </select>
                             </div>
                         </div>
 
-                 
+
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Satuan</label>
@@ -176,13 +173,6 @@
                         </div>
                     </div>
 
-                    <!-- <div class="form-group">
-                        <label class="control-label col-xs-3" >Harga (Grosir)</label>
-                        <div class="col-xs-9">
-                            <input name="harjul_grosir" class="harjul form-control" type="text" placeholder="Harga Jual Grosir..." style="width:335px;">
-                        </div>
-                    </div> -->
-
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Stok</label>
                         <div class="col-xs-9">
@@ -196,7 +186,7 @@
                             <input name="min_stok" class="form-control" type="number" placeholder="Minimal Stok..." style="width:335px;">
                         </div>
                     </div>
-                           
+
 
                 </div>
 
@@ -217,7 +207,6 @@
                         $satuan=$a['barang_satuan'];
                         $harpok=$a['barang_harpok'];
                         $harjul=$a['barang_harjul'];
-                        $harjul_grosir=$a['barang_harjul_grosir'];
                         $stok=$a['barang_stok'];
                         $min_stok=$a['barang_min_stok'];
                         $kat_id=$a['barang_kategori_id'];
@@ -260,7 +249,7 @@
                                         echo "<option value='$id_kat'>$nm_kat</option>";
                                 }
                                 ?>
-                                    
+
                                 </select>
                             </div>
                         </div>
@@ -270,7 +259,7 @@
                             <div class="col-xs-9">
                                  <select name="satuan" class="selectpicker show-tick form-control" data-live-search="true" title="Pilih Satuan" data-width="80%" placeholder="Pilih Satuan" required>
                                     <?php if($satuan=='Unit'):?>
-                                        <option selected>Unit</option>            
+                                        <option selected>Unit</option>
                                         <option>Roll</option>
                                         <option>PCS</option>
                                         <option>Box</option>
@@ -278,7 +267,7 @@
                                         <option>Centimeter</option>
                                         <option>Liter</option>
                                         <option>CC</option>
-                                        <option>Mililiter</option>                                        
+                                        <option>Mililiter</option>
                                         <option>Lembar</option>
                                         <option>Gram</option>
                                         <option>Kilogram</option>
@@ -497,7 +486,7 @@
                                         <option>Lembar</option>
                                         <option>Helai</option>
                                         <option>Gram</option>
-                                        <option>Kilogram</option>                                    
+                                        <option>Kilogram</option>
                                     <?php elseif($satuan=='Lembar'):?>
                                         <option>Unit</option>
                                         <option>Kotak</option>
@@ -597,14 +586,6 @@
                                 <input name="harjul" class="harjul form-control" type="text" value="<?php echo $harjul;?>" placeholder="Harga Jual..." style="width:335px;" required>
                             </div>
                         </div> -->
-
-                        <div class="form-group">
-                            <label class="control-label col-xs-3" >Harga (Grosir)</label>
-                            <div class="col-xs-9">
-                                <input name="harjul_grosir" class="harjul form-control" type="text" value="<?php echo $harjul_grosir;?>" placeholder="Harga Jual Grosir..." style="width:335px;" required>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <label class="control-label col-xs-3" >Stok</label>
                             <div class="col-xs-9">
@@ -670,7 +651,7 @@
 
         <!--END MODAL-->
 
-        <!--END BARCODE--> 
+        <!--END BARCODE-->
        <hr>
 
         <!-- Footer -->
@@ -710,7 +691,7 @@
             });
         });
     </script>
-    
+
 </body>
 
 </html>
