@@ -43,12 +43,11 @@ class Pembelian extends CI_Controller{
                'id'       => $i['barang_id'],
                'name'     => $i['barang_nama'],
                'satuan'   => $i['barang_satuan'],
-               'price'    => $this->input->post('harpok'),
                'harga'    => $this->input->post('harjul'),
                'qty'      => $this->input->post('jumlah')
             );
 
-		$this->cart->insert($data); 
+		$this->cart->insert($data);
 		redirect('admin/pembelian');
 	}else{
         echo "Halaman tidak ditemukan";
@@ -80,7 +79,7 @@ class Pembelian extends CI_Controller{
 				$this->session->unset_userdata('tglfak');
 				$this->session->unset_userdata('suplier');
 				echo $this->session->set_flashdata('msg','<label class="label label-success">Pembelian Berhasil di Simpan ke Database</label>');
-				redirect('admin/pembelian');	
+				redirect('admin/pembelian');
 			}else{
 				redirect('admin/pembelian');
 			}
@@ -90,6 +89,6 @@ class Pembelian extends CI_Controller{
 		}
 	}else{
         echo "Halaman tidak ditemukan";
-    }	
+    }
 	}
 }

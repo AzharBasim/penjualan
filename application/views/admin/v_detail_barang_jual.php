@@ -1,11 +1,11 @@
-					<?php 
+					<?php
 						error_reporting(0);
 						$b=$brg->row_array();
 					?>
 					<table>
 						<tr>
 		                    <th style="width:200px;"></th>
-		                    <th>Nama Barang</th>
+		                    <th>Nama Produk</th>
 		                    <th>Satuan</th>
 		                    <th>Stok</th>
 		                    <th>Harga(Rp)</th>
@@ -23,4 +23,3 @@
 		                    <td><button type="submit" class="btn btn-sm btn-primary">Ok</button></td>
 						</tr>
 					</table>
-					

@@ -14,17 +14,17 @@
 
 <table border="0" align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:0px;">
 <tr>
-    <td colspan="2" style="width:800px;paddin-left:20px;"><center><h4>LAPORAN PENJUALAN BARANG</h4></center><br/></td>
+    <td colspan="2" style="width:800px;padding-left:20px;"><center><h4>LAPORAN PENJUALAN PRODUK</h4></center><br/></td>
 </tr>
-                       
+
 </table>
- 
+
 <table border="0" align="center" style="width:900px;border:none;">
         <tr>
             <th style="text-align:left"></th>
         </tr>
 </table>
-<?php 
+<?php
     $b=$jml->row_array();
 ?>
 <table border="1" align="center" style="width:900px;margin-bottom:20px;">
@@ -37,8 +37,8 @@
         <th>No Faktur</th>
         <th>Kasir</th>
         <th>Tanggal</th>
-        <th>Kode Barang</th>
-        <th>Nama Barang</th>
+        <th>Kode Produk</th>
+        <th>Nama Produk</th>
         <th>Satuan</th>
         <th>Harga Jual</th>
         <th>Qty</th>
@@ -49,7 +49,7 @@
     </tr>
 </thead>
 <tbody>
-<?php 
+<?php
 $no=0;
     foreach ($data->result_array() as $i) {
         $no++;
@@ -99,10 +99,10 @@ $no=0;
     <tr>
         <td align="right"></td>
     </tr>
-   
+
     <tr>
     <td><br/><br/><br/><br/></td>
-    </tr>    
+    </tr>
     <tr>
         <td align="right">( <?php echo $this->session->userdata('nama');?> )</td>
     </tr>

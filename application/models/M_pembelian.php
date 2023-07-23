@@ -14,7 +14,7 @@ class M_pembelian extends CI_Model{
 				'd_beli_kode'		=>	$beli_kode
 			);
 			$this->db->insert('tbl_detail_beli',$data);
-			$this->db->query("update tbl_barang set barang_stok=barang_stok+'$item[qty]',barang_harpok='$item[price]',barang_harjul='$item[harga]' where barang_id='$item[id]'");
+			$this->db->query("update tbl_barang set barang_stok=barang_stok+'$item[qty]'='$item[price]',barang_harjul='$item[harga]' where barang_id='$item[id]'");
 		}
 		return true;
 	}

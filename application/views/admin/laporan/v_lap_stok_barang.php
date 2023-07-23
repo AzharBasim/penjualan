@@ -14,11 +14,11 @@
 
 <table border="0" align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:0px;">
 <tr>
-    <td colspan="2" style="width:800px;paddin-left:20px;"><center><h4>LAPORAN STOK BARANG PERKATEGORI</h4></center><br/></td>
+    <td colspan="2" style="width:800px;padding-left:20px;"><center><h4>LAPORAN STOK PRODUK PERKATEGORI</h4></center><br/></td>
 </tr>
-                       
+
 </table>
- 
+
 <table border="0" align="center" style="width:900px;border:none;">
         <tr>
             <th style="text-align:left"></th>
@@ -26,7 +26,7 @@
 </table>
 
 <table border="1" align="center" style="width:900px;margin-bottom:20px;">
-<?php 
+<?php
     $urut=0;
     $nomor=0;
     $group='-';
@@ -44,9 +44,9 @@
         echo "<tr><td colspan='2'><b>Kategori: $kat</b></td> <td style='text-align:center;'><b>Total Stok: $tots </b></td></tr>";
 echo "<tr style='background-color:#ccc;'>
     <td width='4%' align='center'>No</td>
-    <td width='60%' align='center'>Nama Barang</td>
+    <td width='60%' align='center'>Nama Produk</td>
     <td width='30%' align='center'>Stok</td>
-    
+
     </tr>";
 $nomor=1;
     }
@@ -60,9 +60,9 @@ $nomor=1;
         <tr>
                 <td style="text-align:center;vertical-align:top;text-align:center;"><?php echo $nomor; ?></td>
                 <td style="vertical-align:top;padding-left:5px;"><?php echo $d['barang_nama']; ?></td>
-                <td style="vertical-align:top;text-align:center;"><?php echo $d['barang_stok']; ?></td>  
+                <td style="vertical-align:top;text-align:center;"><?php echo $d['barang_stok']; ?></td>
         </tr>
-        
+
 
         <?php
         }
@@ -81,10 +81,10 @@ $nomor=1;
     <tr>
         <td align="right"></td>
     </tr>
-   
+
     <tr>
     <td><br/><br/><br/><br/></td>
-    </tr>    
+    </tr>
     <tr>
         <td align="right">( <?php echo $this->session->userdata('nama');?> )</td>
     </tr>

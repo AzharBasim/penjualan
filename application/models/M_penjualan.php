@@ -25,7 +25,6 @@ class M_penjualan extends CI_Model{
 				'd_jual_barang_id'		=>	$item['id'],
 				'd_jual_barang_nama'	=>	$item['name'],
 				'd_jual_barang_satuan'	=>	$item['satuan'],
-				'd_jual_barang_harpok'	=>	$item['harpok'],
 				'd_jual_barang_harjul'	=>	$item['amount'],
 				'd_jual_qty'			=>	$item['qty'],
 				'd_jual_diskon'			=>	$item['disc'],

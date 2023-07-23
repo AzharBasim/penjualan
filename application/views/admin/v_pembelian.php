@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Produk By Mfikri.com">
-    <meta name="author" content="M Fikri Setiadi">
+    <meta name="description" content="Acep">
+    <meta name="author" content="Acep">
 
     <title>Pembelian</title>
 
@@ -26,7 +26,7 @@
 <body>
 
     <!-- Navigation -->
-   <?php 
+   <?php
         $this->load->view('admin/menu');
    ?>
 
@@ -39,7 +39,7 @@
             <center><?php echo $this->session->flashdata('msg');?></center>
                 <h1 class="page-header">Pembelian
                     <small>Barang</small>
-                    
+
                 </h1>
             </div>
         </div>
@@ -86,7 +86,7 @@
                     <th>Kode Barang</th>
                 </tr>
                 <tr>
-                    <th><input type="text" name="kode_brg" id="kode_brg" class="form-control input-sm"></th>                     
+                    <th><input type="text" name="kode_brg" id="kode_brg" class="form-control input-sm"></th>
                 </tr>
                     <div id="detail_barang" style="position:absolute;">
                     </div>
@@ -95,10 +95,10 @@
             <table class="table table-bordered table-condensed" style="font-size:11px;margin-top:10px;">
                 <thead>
                     <tr>
-                        <th>Kode Barang</th>
-                        <th>Nama Barang</th>
+                        <th>Kode Produk</th>
+                        <th>Nama Produk</th>
                         <th style="text-align:center;">Satuan</th>
-                        <th style="text-align:center;">Harga Pokok</th>
+                        <!-- <th style="text-align:center;">Harga Pokok</th> -->
                         <th style="text-align:center;">Harga Jual</th>
                         <th style="text-align:center;">Jumlah Beli</th>
                         <th style="text-align:center;">Sub Total</th>
@@ -133,7 +133,7 @@
             </div>
         </div>
         <!-- /.row -->
-        
+
 
         <hr>
 
@@ -158,7 +158,7 @@
                 $('#datetimepicker').datetimepicker({
                     format: 'DD MMMM YYYY HH:mm',
                 });
-                
+
                 $('#datepicker').datetimepicker({
                     format: 'YYYY-MM-DD',
                 });
@@ -173,12 +173,6 @@
     </script>
     <script type="text/javascript">
         $(function(){
-            $('.harpok').priceFormat({
-                    prefix: '',
-                    //centsSeparator: '',
-                    centsLimit: 0,
-                    thousandsSeparator: ','
-            });
             $('.harjul').priceFormat({
                     prefix: '',
                     //centsSeparator: '',
@@ -201,7 +195,7 @@
                $('#detail_barang').html(msg);
                }
             });
-            }); 
+            });
 
             $("#kode_brg").keypress(function(e){
                 if(e.which==13){
@@ -210,7 +204,7 @@
             });
         });
     </script>
-    
+
 </body>
 
 </html>

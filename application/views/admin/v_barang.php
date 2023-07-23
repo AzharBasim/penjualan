@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Management data barang</title>
+    <title>Management data produksi</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url().'assets/css/bootstrap.min.css'?>" rel="stylesheet">
@@ -47,11 +47,10 @@
                 <thead>
                     <tr>
                         <th style="text-align:center;width:40px;">No</th>
-                        <th>Kode Barang</th>
-                        <th>Nama Barang</th>
+                        <th>Kode Produk</th>
+                        <th>Nama Produk</th>
                         <th>Satuan</th>
-                        <th>Harga Pokok</th>
-                        <th>Harga (Eceran)</th>
+                        <th>Harga</th>
                         <th>Stok</th>
                         <th>Min Stok</th>
                         <th>Kategori</th>
@@ -66,7 +65,6 @@
                         $id=$a['barang_id'];
                         $nm=$a['barang_nama'];
                         $satuan=$a['barang_satuan'];
-                        $harpok=$a['barang_harpok'];
                         $harjul=$a['barang_harjul'];
                         $stok=$a['barang_stok'];
                         $min_stok=$a['barang_min_stok'];
@@ -78,7 +76,6 @@
                         <td><?php echo $id;?></td>
                         <td><?php echo $nm;?></td>
                         <td style="text-align:center;"><?php echo $satuan;?></td>
-                        <td style="text-align:right;"><?php echo 'Rp '.number_format($harpok);?></td>
                         <td style="text-align:right;"><?php echo 'Rp '.number_format($harjul);?></td>
                         <td style="text-align:center;"><?php echo $stok;?></td>
                         <td style="text-align:center;"><?php echo $min_stok;?></td>
@@ -114,9 +111,9 @@
                     </div>-->
 
                     <div class="form-group">
-                        <label class="control-label col-xs-3" >Nama Barang</label>
+                        <label class="control-label col-xs-3" >Nama Produk</label>
                         <div class="col-xs-9">
-                            <input name="nabar" class="form-control" type="text" placeholder="Nama Barang..." style="width:335px;" required>
+                            <input name="nabar" class="form-control" type="text" placeholder="Nama Produk..." style="width:335px;" required>
                         </div>
                     </div>
 
@@ -159,17 +156,17 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="control-label col-xs-3" >Harga Pokok</label>
                         <div class="col-xs-9">
                             <input name="harpok" class="harpok form-control" type="text" placeholder="Harga Pokok..." style="width:335px;">
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
-                        <label class="control-label col-xs-3" >Harga (Eceran)</label>
+                        <label class="control-label col-xs-3" >Harga</label>
                         <div class="col-xs-9">
-                            <input name="harjul" class="harjul form-control" type="text" placeholder="Harga Jual Eceran..." style="width:335px;">
+                            <input name="harjul" class="harjul form-control" type="text" placeholder="Harga Jual" style="width:335px;">
                         </div>
                     </div>
 
@@ -205,7 +202,6 @@
                         $id=$a['barang_id'];
                         $nm=$a['barang_nama'];
                         $satuan=$a['barang_satuan'];
-                        $harpok=$a['barang_harpok'];
                         $harjul=$a['barang_harjul'];
                         $stok=$a['barang_stok'];
                         $min_stok=$a['barang_min_stok'];
@@ -223,16 +219,16 @@
                         <div class="modal-body">
 
                         <div class="form-group">
-                            <label class="control-label col-xs-3" >Kode Barang</label>
+                            <label class="control-label col-xs-3" >Kode Produk</label>
                             <div class="col-xs-9">
-                                <input name="kobar" class="form-control" type="text" value="<?php echo $id;?>" placeholder="Kode Barang..." style="width:335px;" readonly>
+                                <input name="kobar" class="form-control" type="text" value="<?php echo $id;?>" placeholder="Kode Produk..." style="width:335px;" readonly>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-xs-3" >Nama Barang</label>
+                            <label class="control-label col-xs-3" >Nama Produk</label>
                             <div class="col-xs-9">
-                                <input name="nabar" class="form-control" type="text" value="<?php echo $nm;?>" placeholder="Nama Barang..." style="width:335px;" required>
+                                <input name="nabar" class="form-control" type="text" value="<?php echo $nm;?>" placeholder="Nama Produk..." style="width:335px;" required>
                             </div>
                         </div>
 
@@ -573,12 +569,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="control-label col-xs-3" >Harga Pokok</label>
                             <div class="col-xs-9">
                                 <input name="harpok" class="harpok form-control" type="text" value="<?php echo $harpok;?>" placeholder="Harga Pokok..." style="width:335px;" required>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- <div class="form-group">
                             <label class="control-label col-xs-3" >Harga (Eceran)</label>
@@ -618,7 +614,6 @@
                     foreach ($data->result_array() as $a) {
                         $id=$a['barang_id'];
                         $nm=$a['barang_nama'];
-                        $harpok=$a['barang_harpok'];
                         $harjul=$a['barang_harjul'];
                         $stok=$a['barang_stok'];
                         $min_stok=$a['barang_min_stok'];
@@ -630,11 +625,11 @@
                     <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 class="modal-title" id="myModalLabel">Hapus Barang</h3>
+                        <h3 class="modal-title" id="myModalLabel">Hapus Produk</h3>
                     </div>
                     <form class="form-horizontal" method="post" action="<?php echo base_url().'admin/barang/hapus_barang'?>">
                         <div class="modal-body">
-                            <p>Yakin mau menghapus data barang ini..?</p>
+                            <p>Yakin mau menghapus data Produk ini..?</p>
                                     <input name="kode" type="hidden" value="<?php echo $id; ?>">
                         </div>
                         <div class="modal-footer">
@@ -677,12 +672,6 @@
     </script>
     <script type="text/javascript">
         $(function(){
-            $('.harpok').priceFormat({
-                    prefix: '',
-                    //centsSeparator: '',
-                    centsLimit: 0,
-                    thousandsSeparator: ','
-            });
             $('.harjul').priceFormat({
                     prefix: '',
                     //centsSeparator: '',

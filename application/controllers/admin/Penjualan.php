@@ -37,7 +37,6 @@ class Penjualan extends CI_Controller{
                'id'       => $i['barang_id'],
                'name'     => $i['barang_nama'],
                'satuan'   => $i['barang_satuan'],
-               'harpok'   => $i['barang_harpok'],
                'price'    => str_replace(",", "", $this->input->post('harjul'))-$this->input->post('diskon'),
                'disc'     => $this->input->post('diskon'),
                'qty'      => $this->input->post('qty'),
@@ -99,12 +98,12 @@ class Penjualan extends CI_Controller{
 					$this->cart->destroy();
 					$this->session->unset_userdata('tglfak');
 					$this->session->unset_userdata('suplier');
-					$this->load->view('admin/alert/alert_sukses');	
+					$this->load->view('admin/alert/alert_sukses');
 				}else{
 					redirect('admin/penjualan');
 				}
 			}
-			
+
 		}else{
 			echo $this->session->set_flashdata('msg','<label class="label label-danger">Penjualan Gagal di Simpan, Mohon Periksa Kembali Semua Inputan Anda!</label>');
 			redirect('admin/penjualan');

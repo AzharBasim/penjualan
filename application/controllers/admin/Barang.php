@@ -25,11 +25,10 @@ class Barang extends CI_Controller{
 		$nabar=$this->input->post('nabar');
 		$kat=$this->input->post('kategori');
 		$satuan=$this->input->post('satuan');
-		$harpok=str_replace(',', '', $this->input->post('harpok'));
 		$harjul=str_replace(',', '', $this->input->post('harjul'));
 		$stok=$this->input->post('stok');
 		$min_stok=$this->input->post('min_stok');
-		$this->m_barang->simpan_barang($kobar,$nabar,$kat,$satuan,$harpok,$harjul,$stok,$min_stok);
+		$this->m_barang->simpan_barang($kobar,$nabar,$kat,$satuan,$harjul,$stok,$min_stok);
 
 		redirect('admin/barang');
 	}else{
@@ -42,11 +41,10 @@ class Barang extends CI_Controller{
 		$nabar=$this->input->post('nabar');
 		$kat=$this->input->post('kategori');
 		$satuan=$this->input->post('satuan');
-		$harpok=str_replace(',', '', $this->input->post('harpok'));
 		$harjul=str_replace(',', '', $this->input->post('harjul'));
 		$stok=$this->input->post('stok');
 		$min_stok=$this->input->post('min_stok');
-		$this->m_barang->update_barang($kobar,$nabar,$kat,$satuan,$harpok,$harjul,$stok,$min_stok);
+		$this->m_barang->update_barang($kobar,$nabar,$kat,$satuan,$harjul,$stok,$min_stok);
 		redirect('admin/barang');
 	}else{
         echo "Halaman tidak ditemukan";

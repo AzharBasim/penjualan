@@ -19,7 +19,7 @@ border: 1px solid black;
 <body onload="window.print()" style='font-family:tahoma; font-size:8pt;'>
 <center>
 <table style='width:550px; font-size:8pt; font-family:calibri; border-collapse: collapse;' border = '0'>
-<?php 
+<?php
     $b=$data->row_array();
 ?>
 <td width='70%' align='left' style='padding-right:80px; vertical-align:top'>
@@ -42,13 +42,13 @@ Nama Pelanggan : <?php echo ($b['jual_pembeli']);?></br>
 
 <tr align='center'>
 <td width='2%'>NO</td>
-<td width='20%'>Nama Barang</td>
+<td width='20%'>Nama Produk</td>
 <td width='13%'>Satuan</td>
 <td width='2%'>Qty</td>
 <td width='13%'>Harga Jual</td>
 <td width='13%'>Discount</td>
 <td width='13%'>Total Harga</td>
-<?php 
+<?php
 $no=0;
     foreach ($data->result_array() as $i) {
         $no++;
@@ -69,13 +69,13 @@ $no=0;
         <td><?php echo $diskon;?></td>
         <td style='text-align:right'><?php echo 'Rp '.$total;?>,-</td>
     </tr>
-<?php }?> 
+<?php }?>
 <tr>
 <td colspan = '6'>
         <div style='text-align:right'>Total :</div>
     </td>
 <td style='text-align:right'><?php echo 'Rp '.number_format(($b['jual_total'])).',-';?></td>
-</tr>   
+</tr>
 <tr>
 <td colspan = '6'>
         <div style='text-align:right'>Tunia :</div>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Grafik Stok Barang</title>
+    <title>Grafik Stok Produk</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- load library jquery dan highcharts -->
-    
+
     <!-- end load library -->
 </head>
 <body>
@@ -16,13 +16,13 @@
         $value[] = (float) $result->total; //ambil nilai
     }
     /* end mengambil query*/
-     
+
 ?>
- 
+
 <!-- Load chart dengan menggunakan ID -->
 <div id="report"></div>
 <!-- END load chart -->
- 
+
 
 <script src="<?php echo base_url().'assets/js/grafik/jquery.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/grafik/highcharts.js'?>"></script>
@@ -65,8 +65,8 @@ $(function () {
         xAxis: {
             categories:  <?php echo json_encode($bulan);?>
         },
-        exporting: { 
-            enabled: false 
+        exporting: {
+            enabled: false
         },
         yAxis: {
             title: {
@@ -102,4 +102,4 @@ $(function () {
 </body>
 </html>
 
- 
+

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Penjualan Eceran</title>
+    <title>Penjualan</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url().'assets/css/bootstrap.min.css'?>" rel="stylesheet">
@@ -39,7 +39,7 @@
             <div class="col-lg-12">
             <center><?php echo $this->session->flashdata('msg');?></center>
                 <h1 class="page-header">Transaksi
-                    <small>Penjualan (Eceran)</small>
+                    <small>Penjualan</small>
                     <a href="#" data-toggle="modal" data-target="#largeModal" class="btn btn-success pull-right">List Produk</a>
                 </h1>
             </div>
@@ -51,7 +51,7 @@
             <form action="<?php echo base_url().'admin/penjualan/add_to_cart'?>" method="post">
             <table>
                 <tr>
-                    <th>Kode Barang</th>
+                    <th>Kode Produk</th>
                 </tr>
                 <tr>
                     <th><input type="text" name="kode_brg" id="kode_brg" class="form-control input-sm"></th>
@@ -63,8 +63,8 @@
             <table class="table table-bordered table-condensed" style="font-size:11px;margin-top:10px;">
                 <thead>
                     <tr>
-                        <th>Kode Barang</th>
-                        <th>Nama Barang</th>
+                        <th>Kode Produk</th>
+                        <th>Nama Produk</th>
                         <th style="text-align:center;">Satuan</th>
                         <th style="text-align:center;">Harga(Rp)</th>
                         <th style="text-align:center;">Diskon(Rp)</th>
@@ -129,7 +129,7 @@
             <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 class="modal-title" id="myModalLabel">Data Barang</h3>
+                <h3 class="modal-title" id="myModalLabel">Data Produk</h3>
             </div>
                 <div class="modal-body" style="overflow:scroll;height:500px;">
 
@@ -137,10 +137,10 @@
                     <thead>
                         <tr>
                             <th style="text-align:center;width:40px;">No</th>
-                            <th style="width:120px;">Kode Barang</th>
-                            <th style="width:240px;">Nama Barang</th>
+                            <th style="width:120px;">Kode Produk</th>
+                            <th style="width:240px;">Nama Produk</th>
                             <th>Satuan</th>
-                            <th style="width:100px;">Harga (Eceran)</th>
+                            <th style="width:100px;">Harga</th>
                             <th>Stok</th>
                             <th style="width:100px;text-align:center;">Aksi</th>
                         </tr>
@@ -153,7 +153,6 @@
                             $id=$a['barang_id'];
                             $nm=$a['barang_nama'];
                             $satuan=$a['barang_satuan'];
-                            $harpok=$a['barang_harpok'];
                             $harjul=$a['barang_harjul'];
                             $stok=$a['barang_stok'];
                             $min_stok=$a['barang_min_stok'];

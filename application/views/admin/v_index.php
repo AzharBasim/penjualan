@@ -29,9 +29,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="<?php echo base_url().'administrator/cekuser'?>">
-      <img src="<?php echo base_url().'assets/img/logo.jpeg'?>" alt="Mitra Jaya" height="52">
-      </a>
+      <a class="navbar-brand mr-1" href="<?php echo base_url().'administrator/cekuser'?>">Toko Punggu Jaya</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="class="nav-link" href="<?php echo base_url().'administrator/cekuser'?>">
         <i class="fas fa-bars"></i>
@@ -59,7 +57,7 @@
 <?php $u=$this->session->userdata('user'); ?>
 <?php if($h=='1'){ ?>
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav bg-primary">
+      <ul class="sidebar navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="<?php echo base_url().'administrator/cekuser'?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -96,9 +94,9 @@
             <i class="fas fa-fw fa-shopping-cart"></i>
             <span>Transaksi</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <!-- <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item" href="<?php echo base_url().'admin/penjualan'?>">Eceran</a>
-          </div>
+          </div> -->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo base_url().'admin/pelanggan'?>">
@@ -108,7 +106,7 @@
         </ul>
         <?php }?>
       <?php if($h=='3'){ ?>
-       <ul class="sidebar navbar-nav bg-info">
+       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="<?php echo base_url().'administrator/cekuser'?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -124,38 +122,37 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-            <strong>Selamat Datang <?php echo $this->session->userdata('nama');?> ! </strong>
+            <strong>Selamat Datang <?php echo $this->session->userdata('nama');?> ! </strong> Semangat Bekerja.
           </ol>
-
-        <!-- Bagian Kalender di atas card-card lainnya -->
-        <div class="container mt-4">
-          <div class="row justify-content-center">
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-body">
-                  <!-- Posisi kalimat nama bulan menjadi di tengah kalender -->
-                  <h5 class="card-title text-center" id="current-month">Nama Bulan</h5>
-                  <table class="table table-bordered table-sm">
-                    <thead>
-                      <tr>
-                        <th>Minggu</th>
-                        <th>Senin</th>
-                        <th>Selasa</th>
-                        <th>Rabu</th>
-                        <th>Kamis</th>
-                        <th>Jumat</th>
-                        <th>Sabtu</th>
-                      </tr>
-                    </thead>
-                    <tbody id="calendar-body">
-                      <!-- Kalender akan diisi melalui JavaScript -->
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+         <!-- Bagian Kalender di atas card-card lainnya -->
+    <div class="container mt-4>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <!-- Posisi kalimat nama bulan menjadi di tengah kalender -->
+              <h5 class="card-title text-center" id="current-month">Nama Bulan</h5>
+              <table class="table table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th>Minggu</th>
+                    <th>Senin</th>
+                    <th>Selasa</th>
+                    <th>Rabu</th>
+                    <th>Kamis</th>
+                    <th>Jumat</th>
+                    <th>Sabtu</th>
+                  </tr>
+                </thead>
+                <tbody id="calendar-body">
+                  <!-- Kalender akan diisi melalui JavaScript -->
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+      </div>
+    </div>
         <style>
           /* style untuk menandai tanggal hari ini */
           .today {
@@ -167,7 +164,7 @@
           <!-- Icon Cards-->
           <div class="row">
             <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-success o-hidden h-100">
+              <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-shopping-cart"></i>
@@ -183,7 +180,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-info o-hidden h-100">
+              <div class="card text-white bg-success o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-users"></i>
@@ -199,12 +196,12 @@
               </div>
             </div>
             <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card text-white bg-danger o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-list-alt"></i>
                   </div>
-                  <div class="mr-5">Stock produk</div>
+                  <div class="mr-5">Stock Barang</div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'admin/barang'?>">
                   <span class="float-left">View Details</span>
@@ -215,7 +212,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-primary o-hidden h-100">
+              <div class="card text-white bg-success o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-truck"></i>
@@ -231,7 +228,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-dark o-hidden h-100">
+              <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-sitemap"></i>
@@ -263,7 +260,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-success o-hidden h-100">
+              <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -294,8 +291,8 @@
           <!-- Icon Cards-->
 
           <div class="row">
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-success o-hidden h-100">
+            <!-- <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-shopping-cart"></i>
@@ -309,9 +306,9 @@
                   </span>
                 </a>
               </div>
-            </div>
+            </div> -->
             <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-info o-hidden h-100">
+              <div class="card text-white bg-success o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-users"></i>
@@ -340,12 +337,12 @@
           <!-- Icon Cards-->
                     <div class="row">
 <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card text-white bg-danger o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-list-alt"></i>
                   </div>
-                  <div class="mr-5">Stock Produk</div>
+                  <div class="mr-5">Stock Barang</div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url().'admin/barang'?>">
                   <span class="float-left">View Details</span>
@@ -356,7 +353,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-primary o-hidden h-100">
+              <div class="card text-white bg-success o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-truck"></i>
