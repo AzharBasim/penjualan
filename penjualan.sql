@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2023 at 02:10 AM
+-- Generation Time: Jul 23, 2023 at 01:49 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -31,7 +31,6 @@ CREATE TABLE `tbl_barang` (
   `barang_id` varchar(15) NOT NULL,
   `barang_nama` varchar(150) DEFAULT NULL,
   `barang_satuan` varchar(30) DEFAULT NULL,
-  `barang_harpok` double DEFAULT NULL,
   `barang_harjul` double DEFAULT NULL,
   `barang_stok` int(11) DEFAULT 0,
   `barang_min_stok` int(11) DEFAULT 0,
@@ -45,10 +44,10 @@ CREATE TABLE `tbl_barang` (
 -- Dumping data for table `tbl_barang`
 --
 
-INSERT INTO `tbl_barang` (`barang_id`, `barang_nama`, `barang_satuan`, `barang_harpok`, `barang_harjul`, `barang_stok`, `barang_min_stok`, `barang_tgl_input`, `barang_tgl_last_update`, `barang_kategori_id`, `barang_user_id`) VALUES
-('PJ000001', 'Gelas Kaca', 'Unit', 12000, 10000, 1299, 1, '2018-09-14 10:27:46', NULL, 40, 1),
-('PJ000002', 'Piring Kaca', 'Unit', 20000, 22000, 197, 2, '2018-09-14 15:50:21', NULL, 41, 1),
-('PJ000003', 'Spion', 'PCS', 20000, 22000, 22, 0, '2023-07-20 14:51:38', NULL, 42, 4);
+INSERT INTO `tbl_barang` (`barang_id`, `barang_nama`, `barang_satuan`, `barang_harjul`, `barang_stok`, `barang_min_stok`, `barang_tgl_input`, `barang_tgl_last_update`, `barang_kategori_id`, `barang_user_id`) VALUES
+('PJ000001', 'Gelas Kaca', 'Unit', 25000, 1301, 1, '2018-09-14 10:27:46', NULL, 40, 1),
+('PJ000002', 'Piring Kaca', 'Unit', 22000, 197, 2, '2018-09-14 15:50:21', NULL, 41, 1),
+('PJ000003', 'Spion', 'PCS', 22000, 22, 0, '2023-07-20 14:51:38', NULL, 42, 4);
 
 -- --------------------------------------------------------
 
@@ -71,7 +70,8 @@ CREATE TABLE `tbl_beli` (
 INSERT INTO `tbl_beli` (`beli_nofak`, `beli_tanggal`, `beli_suplier_id`, `beli_user_id`, `beli_kode`) VALUES
 ('192382139081320', '2018-09-15', 6, 3, 'BL140918000001'),
 ('200723000004', '2023-07-20', 7, 4, 'BL200723000001'),
-('21842719', '2023-07-20', 7, 4, 'BL200723000002');
+('21842719', '2023-07-20', 7, 4, 'BL200723000002'),
+('1231341414', '2023-07-20', 7, 4, 'BL220723000001');
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,8 @@ CREATE TABLE `tbl_detail_beli` (
 INSERT INTO `tbl_detail_beli` (`d_beli_id`, `d_beli_nofak`, `d_beli_barang_id`, `d_beli_harga`, `d_beli_jumlah`, `d_beli_total`, `d_beli_kode`) VALUES
 (1, '192382139081320', 'PJ000001', 12000, 1213, 14556000, 'BL140918000001'),
 (2, '200723000004', 'PJ000003', 20000, 2, 40000, 'BL200723000001'),
-(3, '21842719', 'PJ000001', 12000, 100, 1200000, 'BL200723000002');
+(3, '21842719', 'PJ000001', 12000, 100, 1200000, 'BL200723000002'),
+(4, '1231341414', 'PJ000001', 23000, 2, 46000, 'BL220723000001');
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,6 @@ CREATE TABLE `tbl_detail_jual` (
   `d_jual_barang_id` varchar(15) DEFAULT NULL,
   `d_jual_barang_nama` varchar(150) DEFAULT NULL,
   `d_jual_barang_satuan` varchar(30) DEFAULT NULL,
-  `d_jual_barang_harpok` double DEFAULT NULL,
   `d_jual_barang_harjul` double DEFAULT NULL,
   `d_jual_qty` int(11) DEFAULT NULL,
   `d_jual_diskon` double DEFAULT NULL,
@@ -121,11 +121,11 @@ CREATE TABLE `tbl_detail_jual` (
 -- Dumping data for table `tbl_detail_jual`
 --
 
-INSERT INTO `tbl_detail_jual` (`d_jual_id`, `d_jual_nofak`, `d_jual_barang_id`, `d_jual_barang_nama`, `d_jual_barang_satuan`, `d_jual_barang_harpok`, `d_jual_barang_harjul`, `d_jual_qty`, `d_jual_diskon`, `d_jual_total`) VALUES
-(1, '200723000001', 'PJ000001', 'Gelas Kaca', 'Unit', 12000, 11000, 1, 0, 11000),
-(2, '200723000002', 'PJ000001', 'Gelas Kaca', 'Unit', 12000, 10000, 1, 0, 10000),
-(3, '200723000003', 'PJ000001', 'Gelas Kaca', 'Unit', 12000, 11000, 8, 0, 88000),
-(4, '200723000004', 'PJ000002', 'Piring Kaca', 'Unit', 20000, 22000, 4, 0, 88000);
+INSERT INTO `tbl_detail_jual` (`d_jual_id`, `d_jual_nofak`, `d_jual_barang_id`, `d_jual_barang_nama`, `d_jual_barang_satuan`, `d_jual_barang_harjul`, `d_jual_qty`, `d_jual_diskon`, `d_jual_total`) VALUES
+(1, '200723000001', 'PJ000001', 'Gelas Kaca', 'Unit', 11000, 1, 0, 11000),
+(2, '200723000002', 'PJ000001', 'Gelas Kaca', 'Unit', 10000, 1, 0, 10000),
+(3, '200723000003', 'PJ000001', 'Gelas Kaca', 'Unit', 11000, 8, 0, 88000),
+(4, '200723000004', 'PJ000002', 'Piring Kaca', 'Unit', 22000, 4, 0, 88000);
 
 -- --------------------------------------------------------
 
@@ -192,7 +192,6 @@ CREATE TABLE `tbl_pelanggan` (
 --
 
 INSERT INTO `tbl_pelanggan` (`pelanggan_id`, `pelanggan_nama`, `pelanggan_alamat`, `pelanggan_notlpn`) VALUES
-('P0001', 'Bahyu Sanciko', 'JL AA', '089682261128'),
 ('P0002', 'Sella Purwita Sari', 'JL BB', '02139814132'),
 ('P0003', 'Tika', 'jl ZZ', '0120399012'),
 ('P0004', 'asddsa', 'adassad', '67867');
@@ -320,7 +319,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_detail_beli`
 --
 ALTER TABLE `tbl_detail_beli`
-  MODIFY `d_beli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `d_beli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_detail_jual`
