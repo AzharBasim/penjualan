@@ -7,30 +7,30 @@ class Laporan extends CI_Controller{
             redirect($url);
         };
 		$this->load->model('m_kategori');
-		$this->load->model('m_barang');
-		$this->load->model('m_suplier');
-		$this->load->model('m_pembelian');
+		$this->load->model('m_produk');
 		$this->load->model('m_penjualan');
 		$this->load->model('m_laporan');
 	}
-	function index(){
-	if($this->session->userdata('akses')=='1'){
-		$data['data']=$this->m_barang->tampil_barang();
-		$data['kat']=$this->m_kategori->tampil_kategori();
-		$data['jual_bln']=$this->m_laporan->get_bulan_jual();
-		$data['jual_thn']=$this->m_laporan->get_tahun_jual();
-		$this->load->view('admin/v_laporan',$data);
-	}else{
-        echo "Halaman tidak ditemukan";
-    }
+	function index() {
+		$h = $this->session->userdata('akses');
+
+		if ($h == '1' || $h == '2') { // Memeriksa apakah pengguna memiliki akses 1 atau 3
+			$data['data'] = $this->m_produk->tampil_produk();
+			$data['kat'] = $this->m_kategori->tampil_kategori();
+			$data['jual_bln'] = $this->m_laporan->get_bulan_jual();
+			$data['jual_thn'] = $this->m_laporan->get_tahun_jual();
+			$this->load->view('admin/v_laporan', $data);
+		} else {
+			echo "Halaman tidak ditemukan";
+		}
 	}
-	function lap_stok_barang(){
-		$x['data']=$this->m_laporan->get_stok_barang();
-		$this->load->view('admin/laporan/v_lap_stok_barang',$x);
+	function lap_stok_produk(){
+		$x['data']=$this->m_laporan->get_stok_produk();
+		$this->load->view('admin/laporan/v_lap_stok_produk',$x);
 	}
-	function lap_data_barang(){
-		$x['data']=$this->m_laporan->get_data_barang();
-		$this->load->view('admin/laporan/v_lap_barang',$x);
+	function lap_data_produk(){
+		$x['data']=$this->m_laporan->get_data_produk();
+		$this->load->view('admin/laporan/v_lap_produk',$x);
 	}
 	function lap_data_penjualan(){
 		$x['data']=$this->m_laporan->get_data_penjualan();

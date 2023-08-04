@@ -7,14 +7,12 @@
 <body onload="window.print()">
 <div id="laporan">
 <table align="center" style="width:900px; border-bottom:3px double;border-top:none;border-right:none;border-left:none;margin-top:5px;margin-bottom:20px;">
-
 </table>
 
 <table border="0" align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:0px;">
 <tr>
     <td colspan="2" style="width:800px;padding-left:20px;"><center><h4>LAPORAN PENJUALAN PRODUK</h4></center><br/></td>
 </tr>
-
 </table>
 
 <table border="0" align="center" style="width:900px;border:none;">
@@ -28,7 +26,6 @@
     <tr>
         <th style="width:50px;">No</th>
         <th>No Faktur</th>
-        <th>Kasir</th>
         <th>Tanggal</th>
         <th>Kode Produk</th>
         <th>Nama Produk</th>
@@ -43,33 +40,31 @@
 <tbody>
 <?php
 $no=0;
-    foreach ($data->result_array() as $i) {
-        $no++;
-        $nofak=$i['jual_nofak'];
-        $kasir=$i['jual_user_id'];
-        $tgl=$i['jual_tanggal'];
-        $barang_id=$i['d_jual_barang_id'];
-        $barang_nama=$i['d_jual_barang_nama'];
-        $barang_satuan=$i['d_jual_barang_satuan'];
-        $barang_harjul=$i['d_jual_barang_harjul'];
-        $barang_qty=$i['d_jual_qty'];
-        $barang_diskon=$i['d_jual_diskon'];
-        $barang_pembeli=$i['jual_pembeli'];
-        $barang_total=$i['d_jual_total'];
+foreach ($data->result_array() as $i) {
+    $no++;
+    $nofak=$i['jual_nofak'];
+    $tgl=$i['jual_tanggal'];
+    $produk_id=$i['d_jual_produk_id'];
+    $produk_nama=$i['d_jual_produk_nama'];
+    $produk_satuan=$i['d_jual_produk_satuan'];
+    $produk_harjul=$i['d_jual_produk_harjul'];
+    $produk_qty=$i['d_jual_qty'];
+    $produk_diskon=$i['d_jual_diskon'];
+    $produk_pembeli=$i['jual_pembeli'];
+    $produk_total=$i['d_jual_total'];
 ?>
     <tr>
         <td style="text-align:center;"><?php echo $no;?></td>
         <td style="padding-left:5px;"><?php echo $nofak;?></td>
-        <td style="text-align:center"><?php echo $kasir;?></td>
         <td style="text-align:center;"><?php echo $tgl;?></td>
-        <td style="text-align:center;"><?php echo $barang_id;?></td>
-        <td style="text-align:left;"><?php echo $barang_nama;?></td>
-        <td style="text-align:left;"><?php echo $barang_satuan;?></td>
-        <td style="text-align:right;"><?php echo 'Rp '.number_format($barang_harjul);?></td>
-        <td style="text-align:center;"><?php echo $barang_qty;?></td>
-        <td style="text-align:right;"><?php echo 'Rp '.number_format($barang_diskon);?></td>
-         <td style="text-align:center;"><?php echo $barang_pembeli;?></td>
-        <td style="text-align:right;"><?php echo 'Rp '.number_format($barang_total);?></td>
+        <td style="text-align:center;"><?php echo $produk_id;?></td>
+        <td style="text-align:left;"><?php echo $produk_nama;?></td>
+        <td style="text-align:left;"><?php echo $produk_satuan;?></td>
+        <td style="text-align:right;"><?php echo 'Rp '.number_format($produk_harjul);?></td>
+        <td style="text-align:center;"><?php echo $produk_qty;?></td>
+        <td style="text-align:right;"><?php echo 'Rp '.number_format($produk_diskon);?></td>
+        <td style="text-align:center;"><?php echo $produk_pembeli;?></td>
+        <td style="text-align:right;"><?php echo 'Rp '.number_format($produk_total);?></td>
     </tr>
 <?php }?>
 </tbody>
@@ -78,7 +73,7 @@ $no=0;
     $b=$jml->row_array();
 ?>
     <tr>
-        <td colspan="11" style="text-align:center;"><b>Total</b></td>
+        <td colspan="10" style="text-align:center;"><b>Total</b></td>
         <td style="text-align:right;"><b><?php echo 'Rp '.number_format($b['total']);?></b></td>
     </tr>
 </tfoot>
@@ -115,4 +110,4 @@ $no=0;
 </table>
 </div>
 </body>
-</html>_
+</html>

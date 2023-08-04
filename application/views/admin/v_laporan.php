@@ -59,7 +59,7 @@
                         <td style="text-align:center;vertical-align:middle">1</td>
                         <td style="vertical-align:middle;">Laporan Data Produksi</td>
                         <td style="text-align:center;">
-                            <a class="btn btn-sm btn-default" href="<?php echo base_url().'admin/laporan/lap_data_barang'?>" target="_blank"><span class="fa fa-print"></span> Print</a>
+                            <a class="btn btn-sm btn-default" href="<?php echo base_url().'admin/laporan/lap_data_produk'?>" target="_blank"><span class="fa fa-print"></span> Print</a>
                         </td>
                     </tr>
 
@@ -67,7 +67,7 @@
                         <td style="text-align:center;vertical-align:middle">2</td>
                         <td style="vertical-align:middle;">Laporan Stok Produk</td>
                         <td style="text-align:center;">
-                            <a class="btn btn-sm btn-default" href="<?php echo base_url().'admin/laporan/lap_stok_barang'?>" target="_blank"><span class="fa fa-print"></span> Print</a>
+                            <a class="btn btn-sm btn-default" href="<?php echo base_url().'admin/laporan/lap_stok_produk'?>" target="_blank"><span class="fa fa-print"></span> Print</a>
                         </td>
                     </tr>
 

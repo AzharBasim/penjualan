@@ -38,7 +38,7 @@
     $urut++;
     if($group=='-' || $group!=$d['bulan']){
         $bulan=$d['bulan'];
-        $query=$this->db->query("SELECT jual_nofak,DATE_FORMAT(jual_tanggal,'%M %Y') AS bulan,DATE_FORMAT(jual_tanggal,'%d %M %Y') AS jual_tanggal,d_jual_barang_id,d_jual_barang_nama,jual_pembeli,jual_user_id,d_jual_barang_satuan,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,SUM(d_jual_total) AS total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE DATE_FORMAT(jual_tanggal,'%M %Y')='$bulan'");
+        $query=$this->db->query("SELECT jual_nofak,DATE_FORMAT(jual_tanggal,'%M %Y') AS bulan,DATE_FORMAT(jual_tanggal,'%d %M %Y') AS jual_tanggal,d_jual_produk_id,d_jual_produk_nama,jual_pembeli,jual_user_id,d_jual_produk_satuan,d_jual_produk_harjul,d_jual_qty,d_jual_diskon,SUM(d_jual_total) AS total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE DATE_FORMAT(jual_tanggal,'%M %Y')='$bulan'");
         $t=$query->row_array();
         $tots=$t['total'];
         if($group!='-')
@@ -72,10 +72,10 @@ $nomor=1;
                 <td style="vertical-align:top;padding-left:5px;"><?php echo $d['jual_nofak']; ?></td>
                 <td style="vertical-align:top;text-align:center;"><?php echo $d['jual_user_id']; ?></td>
                 <td style="vertical-align:top;text-align:center;"><?php echo $d['jual_tanggal']; ?></td>
-                <td style="vertical-align:top;padding-left:5px;"><?php echo $d['d_jual_barang_id']; ?></td>
-                <td style="vertical-align:top;padding-left:5px;"><?php echo $d['d_jual_barang_nama']; ?></td>
-                <td style="vertical-align:top;padding-left:5px;"><?php echo $d['d_jual_barang_satuan']; ?></td>
-                <td style="vertical-align:top;padding-left:5px;text-align:right;"><?php echo 'Rp '.number_format($d['d_jual_barang_harjul']); ?></td>
+                <td style="vertical-align:top;padding-left:5px;"><?php echo $d['d_jual_produk_id']; ?></td>
+                <td style="vertical-align:top;padding-left:5px;"><?php echo $d['d_jual_produk_nama']; ?></td>
+                <td style="vertical-align:top;padding-left:5px;"><?php echo $d['d_jual_produk_satuan']; ?></td>
+                <td style="vertical-align:top;padding-left:5px;text-align:right;"><?php echo 'Rp '.number_format($d['d_jual_produk_harjul']); ?></td>
                 <td style="vertical-align:top;padding-left:5px;text-align:center;"><?php echo $d['d_jual_qty']; ?></td>
                 <td style="vertical-align:top;padding-left:5px;text-align:right;"><?php echo 'Rp '.number_format($d['d_jual_diskon']); ?></td>
                 <td style="text-align:center;"><?php echo $d['jual_pembeli'];?></td>

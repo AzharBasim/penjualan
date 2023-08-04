@@ -56,7 +56,7 @@
                 <tr>
                     <th><input type="text" name="kode_brg" id="kode_brg" class="form-control input-sm"></th>
                 </tr>
-                    <div id="detail_barang" style="position:absolute;">
+                    <div id="detail_produk" style="position:absolute;">
                     </div>
             </table>
              </form>
@@ -150,13 +150,13 @@
                         $no=0;
                         foreach ($data->result_array() as $a):
                             $no++;
-                            $id=$a['barang_id'];
-                            $nm=$a['barang_nama'];
-                            $satuan=$a['barang_satuan'];
-                            $harjul=$a['barang_harjul'];
-                            $stok=$a['barang_stok'];
-                            $min_stok=$a['barang_min_stok'];
-                            $kat_id=$a['barang_kategori_id'];
+                            $id=$a['produk_id'];
+                            $nm=$a['produk_nama'];
+                            $satuan=$a['produk_satuan'];
+                            $harjul=$a['produk_harjul'];
+                            $stok=$a['produk_stok'];
+                            $min_stok=$a['produk_min_stok'];
+                            $kat_id=$a['produk_kategori_id'];
                             $kat_nama=$a['kategori_nama'];
                     ?>
                         <tr>
@@ -271,10 +271,10 @@
                 var kobar = {kode_brg:$(this).val()};
                    $.ajax({
                type: "POST",
-               url : "<?php echo base_url().'admin/penjualan/get_barang';?>",
+               url : "<?php echo base_url().'admin/penjualan/get_produk';?>",
                data: kobar,
                success: function(msg){
-               $('#detail_barang').html(msg);
+               $('#detail_produk').html(msg);
                }
             });
             });

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+
 
     <title>Pengguna</title>
 
@@ -24,7 +24,7 @@
 <body>
 
     <!-- Navigation -->
-   <?php 
+   <?php
         $this->load->view('admin/menu');
    ?>
 
@@ -58,7 +58,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php 
+                <?php
                     $no=0;
                     foreach ($data->result_array() as $a):
                         $no++;
@@ -118,13 +118,13 @@
                             <input name="password" class="form-control" type="password" placeholder="Input Password..." style="width:280px;" required>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Ulangi Password</label>
                         <div class="col-xs-9">
                             <input name="password2" class="form-control" type="password" placeholder="Ulangi Password..." style="width:280px;" required>
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Level</label>
@@ -132,10 +132,10 @@
                             <select name="level" class="form-control" style="width:280px;" required>
                                 <option value="1">Admin</option>
                                 <option value="2">Kasir</option>
-                                <option value="3">Gudang</option>
+                                <option value="3">Pejabat</option>
                             </select>
                         </div>
-                    </div>   
+                    </div>
 
                 </div>
 
@@ -189,13 +189,13 @@
                             <input name="password" class="form-control" type="password" placeholder="Input Password..." style="width:280px;">
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Ulangi Password</label>
                         <div class="col-xs-9">
                             <input name="password2" class="form-control" type="password" placeholder="Ulangi Password..." style="width:280px;">
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Level</label>
@@ -204,11 +204,11 @@
                             <?php if ($level=='1'):?>
                                 <option value="1" selected>Admin</option>
                                 <option value="2">Kasir</option>
-                                <option value="3">Gudang</option>
+                                <option value="3">Pejabat</option>
                             <?php else:?>
                                 <option value="1">Admin</option>
                                 <option value="2" selected>Kasir</option>
-                                <option value="3" selected>Gudang</option>
+                                <option value="3" selected>Pejabat</option>
                             <?php endif;?>
                             </select>
                         </div>
@@ -237,26 +237,28 @@
                         $level=$a['user_level'];
                         $status=$a['user_status'];
                     ?>
-                <div id="modalHapusPelanggan<?php echo $id?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 class="modal-title" id="myModalLabel">NonAktifkan Pengguna</h3>
-                    </div>
-                    <form class="form-horizontal" method="post" action="<?php echo base_url().'admin/pengguna/nonaktifkan'?>">
-                        <div class="modal-body">
-                            <p>Yakin mau menonaktifkan pengguna <b><?php echo $nm;?></b>..?</p>
-                                    <input name="kode" type="hidden" value="<?php echo $id; ?>">
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                            <button type="submit" class="btn btn-primary">Nonaktifkan</button>
-                        </div>
-                    </form>
+               <div id="modalHapusPelanggan<?php echo $id?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title" id="myModalLabel">NonAktifkan Pengguna</h3>
+            </div>
+            <!-- Tambahkan form_open() dengan CSRF protection -->
+            <?php echo form_open(base_url('admin/pengguna/hapus_pengguna')) ?>
+                <div class="modal-body">
+                    <p>Yakin mau menonaktifkan pengguna <b><?php echo $nm;?></b>..?</p>
+                    <input name="kode" type="hidden" value="<?php echo $id; ?>">
                 </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Nonaktifkan</button>
                 </div>
-                </div>
+            <?php echo form_close() ?>
+        </div>
+    </div>
+</div>
+
             <?php
         }
         ?>
@@ -284,7 +286,7 @@
             $('#mydata').DataTable();
         } );
     </script>
-    
+
 </body>
 
 </html>

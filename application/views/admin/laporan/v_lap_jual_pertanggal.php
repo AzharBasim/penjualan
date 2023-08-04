@@ -55,11 +55,11 @@ $no=0;
         $nofak=$i['jual_nofak'];
         $kasir=$i['jual_user_id'];
         $tgl=$i['jual_tanggal'];
-        $kobar=$i['d_jual_barang_id'];
-        $nabar=$i['d_jual_barang_nama'];
-        $satuan=$i['d_jual_barang_satuan'];
-        $barang_pembeli=$i['jual_pembeli'];
-        $harjul=$i['d_jual_barang_harjul'];
+        $kobar=$i['d_jual_produk_id'];
+        $nabar=$i['d_jual_produk_nama'];
+        $satuan=$i['d_jual_produk_satuan'];
+        $produk_pembeli=$i['jual_pembeli'];
+        $harjul=$i['d_jual_produk_harjul'];
         $qty=$i['d_jual_qty'];
         $diskon=$i['d_jual_diskon'];
         $total=$i['d_jual_total'];
@@ -67,7 +67,8 @@ $no=0;
     <tr>
         <td style="text-align:center;"><?php echo $no;?></td>
         <td style="padding-left:5px;"><?php echo $nofak;?></td>
-        <td style="text-align:center;"><?php echo $kasir;?></td>
+
+        
         <td style="text-align:center;"><?php echo $tgl;?></td>
         <td style="text-align:center;"><?php echo $kobar;?></td>
         <td style="text-align:left;"><?php echo $nabar;?></td>
@@ -75,7 +76,7 @@ $no=0;
         <td style="text-align:right;"><?php echo 'Rp '.number_format($harjul);?></td>
         <td style="text-align:center;"><?php echo $qty;?></td>
         <td style="text-align:right;"><?php echo 'Rp '.number_format($diskon);?></td>
-        <td style="text-align:center;"><?php echo $barang_pembeli;?></td>
+        <td style="text-align:center;"><?php echo $produk_pembeli;?></td>
         <td style="text-align:right;"><?php echo 'Rp '.number_format($total);?></td>
     </tr>
 <?php }?>

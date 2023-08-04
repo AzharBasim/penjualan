@@ -20,4 +20,8 @@ class M_pengguna extends CI_Model{
 		$hsl=$this->db->query("UPDATE tbl_user SET user_status='0' WHERE user_id='$kode'");
 		return $hsl;
 	}
+	function hapus_pengguna($kode){
+        $hsl = $this->db->query("DELETE FROM tbl_user WHERE user_id='$kode'");
+        return $hsl;
+    }
 }

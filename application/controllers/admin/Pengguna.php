@@ -69,5 +69,14 @@ class Pengguna extends CI_Controller{
 	}else{
         echo "Halaman tidak ditemukan";
     }
+	function hapus_pengguna($kode){
+        if($this->session->userdata('akses')=='1'){
+            $this->m_pengguna->hapus_pengguna($kode);
+            echo $this->session->set_flashdata('msg','<label class="label label-success">Pengguna Berhasil dihapus</label>');
+            redirect('admin/pengguna');
+        }else{
+            echo "Halaman tidak ditemukan";
+        }
+	} 	 	
 	}
 }

@@ -7,23 +7,22 @@ class Penjualan extends CI_Controller{
             redirect($url);
         };
 		$this->load->model('m_kategori');
-		$this->load->model('m_barang');
-		$this->load->model('m_suplier');
+		$this->load->model('m_produk');
 		$this->load->model('m_penjualan');
 	}
 	function index(){
 	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
-		$data['data']=$this->m_barang->tampil_barang();
+		$data['data']=$this->m_produk->tampil_produk();
 		$this->load->view('admin/v_penjualan',$data);
 	}else{
         echo "Halaman tidak ditemukan";
     }
 	}
-	function get_barang(){
+	function get_produk(){
 	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$kobar=$this->input->post('kode_brg');
-		$x['brg']=$this->m_barang->get_barang($kobar);
-		$this->load->view('admin/v_detail_barang_jual',$x);
+		$x['brg']=$this->m_produk->get_produk($kobar);
+		$this->load->view('admin/v_detail_produk_jual',$x);
 	}else{
         echo "Halaman tidak ditemukan";
     }
@@ -31,12 +30,12 @@ class Penjualan extends CI_Controller{
 	function add_to_cart(){
 	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$kobar=$this->input->post('kode_brg');
-		$produk=$this->m_barang->get_barang($kobar);
+		$produk=$this->m_produk->get_produk($kobar);
 		$i=$produk->row_array();
 		$data = array(
-               'id'       => $i['barang_id'],
-               'name'     => $i['barang_nama'],
-               'satuan'   => $i['barang_satuan'],
+               'id'       => $i['produk_id'],
+               'name'     => $i['produk_nama'],
+               'satuan'   => $i['produk_satuan'],
                'price'    => str_replace(",", "", $this->input->post('harjul'))-$this->input->post('diskon'),
                'disc'     => $this->input->post('diskon'),
                'qty'      => $this->input->post('qty'),
@@ -97,7 +96,6 @@ class Penjualan extends CI_Controller{
 				if($order_proses){
 					$this->cart->destroy();
 					$this->session->unset_userdata('tglfak');
-					$this->session->unset_userdata('suplier');
 					$this->load->view('admin/alert/alert_sukses');
 				}else{
 					redirect('admin/penjualan');

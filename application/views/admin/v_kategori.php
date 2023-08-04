@@ -23,7 +23,7 @@
 <body>
 
     <!-- Navigation -->
-   <?php 
+   <?php
         $this->load->view('admin/menu');
    ?>
 
@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Kategori
-                    <small>Barang</small>
+                    <small>Produk</small>
                     <div class="pull-right"><a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#largeModal"><span class="fa fa-plus"></span> Tambah Kategori</a></div>
                 </h1>
             </div>
@@ -52,7 +52,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php 
+                <?php
                     $no=0;
                     foreach ($data->result_array() as $a):
                         $no++;
@@ -90,7 +90,7 @@
                             <input name="kategori" class="form-control" type="text" placeholder="Input Nama Kategori..." style="width:280px;" required>
                         </div>
                     </div>
-                           
+
 
                 </div>
 
@@ -193,7 +193,7 @@
             $('#mydata').DataTable();
         } );
     </script>
-    
+
 </body>
 
 </html>

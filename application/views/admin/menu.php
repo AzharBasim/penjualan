@@ -30,34 +30,7 @@
                         <a href="<?php echo base_url().'admin/laporan'?>"><span class="fa fa-file"></span> Laporan</a>
                     </li>
                     <?php }?>
-                    <?php if($h=='2'){ ?>
-                      <!--dropdown-->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Transaksi"><span class="fa fa-shopping-cart" aria-hidden="true"></span> Transaksi</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="<?php echo base_url().'admin/penjualan'?>"><span class="fa fa-shopping-bag" aria-hidden="true"></span> Penjualan (Eceran)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'admin/pelanggan'?>"><span class="fa fa-users"></span> Pelanggan</a>
-                    </li>
-                    <!--ending dropdown-->
-                    <?php }?>
-                     <?php if($h=='3'){ ?> >
-                    <li>
-                        <a href="<?php echo base_url().'admin/barang'?>"><span class="fa fa-shopping-cart"></span> Barang</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'admin/kategori'?>"><span class="fa fa-sitemap"></span> Kategori</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'admin/suplier'?>"><span class="fa fa-truck"></span> Suplier</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url().'admin/retur'?>"><span class="glyphicon glyphicon-tags"></span> Retur</a>
-                    </li>
-                    <!--ending dropdown-->
-                    <?php }?>
+
                      <li>
                         <a href="<?php echo base_url().'administrator/logout'?>"><span class="fa fa-sign-out"></span> Logout</a>
                     </li>

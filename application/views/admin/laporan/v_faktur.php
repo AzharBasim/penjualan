@@ -1,5 +1,5 @@
 <html>
-<title>Faktur Penjualan Barang</title>
+<title>Faktur Penjualan produk</title>
 <meta charset="utf-8">
 <div id="laporan">
 <style>
@@ -25,7 +25,7 @@ border: 1px solid black;
 <td width='70%' align='left' style='padding-right:80px; vertical-align:top'>
 <span style='font-size:12pt'><b>Mitra Jaya Manufacture</b></span>
 </br>
-Jl. Kiara Condong </br>Telp : 0594094545
+Jl.Sadananya no.21 Maleber, Ciamis, Jawabarat </br>Telp : 089234312415
 </td>
 <td style='vertical-align:top' width='30%' align='left'>
 <b><span style='font-size:12pt'>FAKTUR PENJUALAN</span></b>
@@ -52,9 +52,9 @@ Nama Pelanggan : <?php echo ($b['jual_pembeli']);?></br>
 $no=0;
     foreach ($data->result_array() as $i) {
         $no++;
-        $nabar=$i['d_jual_barang_nama'];
-        $satuan=$i['d_jual_barang_satuan'];
-        $harjul=$i['d_jual_barang_harjul'];
+        $nabar=$i['d_jual_produk_nama'];
+        $satuan=$i['d_jual_produk_satuan'];
+        $harjul=$i['d_jual_produk_harjul'];
         $qty=$i['d_jual_qty'];
         $diskon=$i['d_jual_diskon'];
         $total=$i['d_jual_total'];
